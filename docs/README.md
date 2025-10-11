@@ -66,7 +66,7 @@ svg-sprite build inputs\*.svg -o sprite.svg -m
 All options for `build` command:
 ```console
 DotMake Svg-Sprite Cli v1.0.0
-Copyright © 2025 DotMake
+Copyright Â© 2025 DotMake
 
 build: Build an SVG sprite file from input SVG files.
 
@@ -103,13 +103,13 @@ Options:
                                                      characters, ? - Exactly one character.
                                                      Attributes that should be usually preserved on
                                                      <symbol> tag:
-                                                     - viewBox — must be preserved on <symbol> to
+                                                     - viewBox â€” must be preserved on <symbol> to
                                                      define coordinate system
-                                                     - id — required for referencing the symbol later
-                                                     - fill, stroke, opacity, transform — if used for
+                                                     - id â€” required for referencing the symbol later
+                                                     - fill, stroke, opacity, transform â€” if used for
                                                      styling
-                                                     - class, style — if CSS is applied
-                                                     - width and height — optional; usually omitted in
+                                                     - class, style â€” if CSS is applied
+                                                     - width and height â€” optional; usually omitted in
                                                      sprites
   -etd, --elements-to-discard <elements-to-discard>  The elements to discard when converting <svg> tag
                                                      to <symbol> tag or vice versa.
@@ -117,14 +117,14 @@ Options:
                                                      characters, ? - Exactly one character.
                                                      Elements that should be usually preserved inside
                                                      <symbol> tag:
-                                                     - <path> — most common for icons
+                                                     - <path> â€” most common for icons
                                                      - <circle>, <rect>, <line>, <polygon>, <polyline>
-                                                     — basic shapes
-                                                     - <g> — groups of elements (preserve if used for
+                                                     â€” basic shapes
+                                                     - <g> â€” groups of elements (preserve if used for
                                                      structure or styling)
-                                                     - <text> — if your icon includes text
-                                                     - <use> — if referencing other symbols
-                                                     - <defs> — only if it contains reusable elements
+                                                     - <text> â€” if your icon includes text
+                                                     - <use> â€” if referencing other symbols
+                                                     - <defs> â€” only if it contains reusable elements
                                                      like gradients or filters used inside the symbol
   -ip, --id-prefix <id-prefix>                       The prefix to add to the id attribute when
                                                      converting <svg> tag to <symbol> tag or vice
@@ -170,7 +170,7 @@ svg-sprite extract sprite.svg -od outputs\ -m
 All options for `extract` command:
 ```console
 DotMake Svg-Sprite Cli v1.0.0
-Copyright © 2025 DotMake
+Copyright Â© 2025 DotMake
 
 extract: Extract symbols from an SVG sprite file to individual SVG files.
 
@@ -194,13 +194,13 @@ Options:
                                                      characters, ? - Exactly one character.
                                                      Attributes that should be usually preserved on
                                                      <symbol> tag:
-                                                     - viewBox — must be preserved on <symbol> to
+                                                     - viewBox â€” must be preserved on <symbol> to
                                                      define coordinate system
-                                                     - id — required for referencing the symbol later
-                                                     - fill, stroke, opacity, transform — if used for
+                                                     - id â€” required for referencing the symbol later
+                                                     - fill, stroke, opacity, transform â€” if used for
                                                      styling
-                                                     - class, style — if CSS is applied
-                                                     - width and height — optional; usually omitted in
+                                                     - class, style â€” if CSS is applied
+                                                     - width and height â€” optional; usually omitted in
                                                      sprites
   -etd, --elements-to-discard <elements-to-discard>  The elements to discard when converting <svg> tag
                                                      to <symbol> tag or vice versa.
@@ -208,14 +208,14 @@ Options:
                                                      characters, ? - Exactly one character.
                                                      Elements that should be usually preserved inside
                                                      <symbol> tag:
-                                                     - <path> — most common for icons
+                                                     - <path> â€” most common for icons
                                                      - <circle>, <rect>, <line>, <polygon>, <polyline>
-                                                     — basic shapes
-                                                     - <g> — groups of elements (preserve if used for
+                                                     â€” basic shapes
+                                                     - <g> â€” groups of elements (preserve if used for
                                                      structure or styling)
-                                                     - <text> — if your icon includes text
-                                                     - <use> — if referencing other symbols
-                                                     - <defs> — only if it contains reusable elements
+                                                     - <text> â€” if your icon includes text
+                                                     - <use> â€” if referencing other symbols
+                                                     - <defs> â€” only if it contains reusable elements
                                                      like gradients or filters used inside the symbol
   -ip, --id-prefix <id-prefix>                       The prefix to add to the id attribute when
                                                      converting <svg> tag to <symbol> tag or vice
