@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- NuGet Package Information (common ones are in Directory.Build.props) -->
+    <!-- Description is used for assembly and NuGet metadata -->
+    <Description>A library for building or extracting of an SVG sprite, i.e. a .svg file with child &lt;symbol&gt; tags.</Description>
+    <PackageTags>svg sprite symbol icon builder generator extractor dotnet library</PackageTags>
+    <PackageReleaseNotes>
+      <![CDATA[
+        - Initial release.
+      ]]>
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PreviewPageTemplate.html" />
+  </ItemGroup>
+
+</Project>

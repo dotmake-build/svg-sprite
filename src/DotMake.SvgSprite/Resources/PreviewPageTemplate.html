@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>SVG Sprite Preview Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+
+    body > svg {
+      display: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1.5rem;
+    }
+
+    h1 span {
+      font-size: 1.4rem;
+      margin-left: 1.4rem;
+      color: darkgrey;
+    }
+
+    .icon {
+      text-align: center;
+      background: white;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .icon svg {
+      width: 48px;
+      height: 48px;
+      fill: #333;
+    }
+
+    .label {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>SVG Sprite Preview<span>$SvgSymbolCount symbols</span></h1>
+
+<!-- Inline SVG sprite -->
+$SvgSprite
+
+<!-- Grid of icons -->
+<div class="grid">
+$SvgIcons
+</div>
+
+</body>
+</html>

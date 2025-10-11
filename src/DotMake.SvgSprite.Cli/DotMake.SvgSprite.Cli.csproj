@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Product>DotMake Svg-Sprite Cli</Product>
+    <AssemblyName>svg-sprite</AssemblyName>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>svg-sprite</ToolCommandName>
+    <!-- NuGet Package Information (common ones are in Directory.Build.props) -->
+    <!-- Description is used for assembly and NuGet metadata -->
+    <Description>A dotnet tool for building or extracting of an SVG sprite, i.e. a .svg file with child &lt;symbol&gt; tags.</Description>
+    <PackageTags>svg sprite symbol icon builder generator extractor dotnet tool cli</PackageTags>
+    <PackageReleaseNotes>
+      <![CDATA[
+        - Initial release.
+      ]]>
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotMake.SvgSprite\DotMake.SvgSprite.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotMake.CommandLine" Version="2.8.1" />
+    <PackageReference Include="Glob.cs" Version="5.1.1643" />
+  </ItemGroup>
+
+</Project>
