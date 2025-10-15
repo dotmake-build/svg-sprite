@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!-- https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#generateassemblyinfo -->
-    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionPrefix>1.0.1</VersionPrefix>
     <Product>DotMake Svg-Sprite</Product>
     <Company>DotMake</Company>
     <!-- Copyright is also used for NuGet metadata -->
@@ -16,7 +16,7 @@
     <!-- NuGet Package Information -->
     <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target -->
     <Authors>dotmake</Authors>
-    <PackageProjectUrl>https://dotmake.build/svg-sprite</PackageProjectUrl>
+    <PackageProjectUrl>https://dotmake.build/svg-sprite/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/dotmake-build/svg-sprite</RepositoryUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>

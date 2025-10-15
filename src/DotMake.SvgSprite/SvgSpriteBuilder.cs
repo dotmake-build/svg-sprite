@@ -320,7 +320,7 @@ namespace DotMake.SvgSprite
                     if (!svgSymbolOptions.ShouldPreserveElement(element.Name.LocalName))
                         continue;
 
-                    if (!element.HasAttributes && string.IsNullOrWhiteSpace(element.Value))
+                    if (!element.HasAttributes && !element.HasElements && string.IsNullOrWhiteSpace(element.Value))
                         continue;
                 }
 

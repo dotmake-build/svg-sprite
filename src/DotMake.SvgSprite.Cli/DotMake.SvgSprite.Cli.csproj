@@ -14,7 +14,8 @@
     <PackageTags>svg sprite symbol icon builder generator extractor dotnet tool cli</PackageTags>
     <PackageReleaseNotes>
       <![CDATA[
-        - Initial release.
+        - **Fixed:** Some elements inside `<svg>` tag was wrongly being considered empty, e.g. `<g>` tags so
+          the resulting `<symbol>` tag was generated as empty.
       ]]>
     </PackageReleaseNotes>
   </PropertyGroup>
