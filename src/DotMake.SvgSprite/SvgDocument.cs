@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
 
 namespace DotMake.SvgSprite
 {
@@ -11,8 +12,8 @@ namespace DotMake.SvgSprite
     /// Represents an SVG document. Provides methods for loading, editing and saving SVG files.
     /// </summary>
     /// <example>
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgLoading" language="cs" />
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSaving" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgLoading" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSaving" language="cs" />
     /// </example>
     public class SvgDocument
     {
@@ -154,7 +155,6 @@ namespace DotMake.SvgSprite
 
         /// <inheritdoc cref="GetXmlWriterSettings" />
         /// <summary>Returns the XML for this SVG, optionally disabling formatting.</summary>
-        /// <param name="disableFormatting"></param>
         /// <returns>A <see cref="string" /> containing the XML.</returns>
         public string ToString(bool disableFormatting)
         {

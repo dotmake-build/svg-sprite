@@ -13,11 +13,11 @@ namespace DotMake.SvgSprite
     /// Handles building or extracting of an SVG sprite, i.e. a .svg file with child <c>&lt;symbol&gt;</c> tags.
     /// </summary>
     /// <example>
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteBuilding" language="cs" />
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteBuildingWithOptions" language="cs" />
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteExtracting" language="cs" />
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteExtractingWithOptions" language="cs" />
-    ///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteCreatingHtmlPreview" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteBuilding" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteBuildingWithOptions" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteExtracting" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteExtractingWithOptions" language="cs" />
+    ///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteCreatingHtmlPreview" language="cs" />
     /// </example>
     public class SvgSpriteBuilder
     {

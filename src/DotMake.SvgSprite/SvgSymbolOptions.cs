@@ -7,8 +7,8 @@ namespace DotMake.SvgSprite;
 /// Options used when converting an <c>&lt;svg&gt;</c> tag to an <c>&lt;symbol&gt;</c> tag or vice versa.
 /// </summary>
 /// <example>
-///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteBuildingWithOptions" language="cs" />
-///     <code source="..\DotMake.SvgSprite\UsageExamples.cs" region="SvgSpriteExtractingWithOptions" language="cs" />
+///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteBuildingWithOptions" language="cs" />
+///     <code source="../DotMake.SvgSprite/UsageExamples.cs" region="SvgSpriteExtractingWithOptions" language="cs" />
 /// </example>
 public class SvgSymbolOptions
 {
