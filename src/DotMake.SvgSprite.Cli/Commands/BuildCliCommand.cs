@@ -25,7 +25,10 @@ namespace DotMake.SvgSprite.Cli.Commands
         [CliOption(Description = "Overwrite existing files.")]
         public bool OverwriteExisting { get; set; }
 
-        [CliOption(Description = "Create an HTML page next to the output SVG sprite file, for previewing the symbols inside the SVG sprite.")]
+        [CliOption(
+            Description = "Create an HTML page next to the output SVG sprite file, for previewing the symbols inside the SVG sprite.",
+            Alias = "p"
+        )]
         public bool HtmlPreview { get; set; }
 
         [CliOption(Description = "Minify the SVG output, i.e. disable formatting output, not write individual elements on new lines and indent.")]

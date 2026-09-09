@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Product>DotMake Svg-Sprite Cli</Product>
     <AssemblyName>svg-sprite</AssemblyName>
 
@@ -14,8 +14,15 @@
     <PackageTags>svg sprite symbol icon builder generator extractor dotnet tool cli</PackageTags>
     <PackageReleaseNotes>
       <![CDATA[
-        - **Fixed:** Some elements inside `<svg>` tag was wrongly being considered empty, e.g. `<g>` tags so
-          the resulting `<symbol>` tag was generated as empty.
+        - **Improved:** Updated `DotMake.CommandLine` to `v3.7.0`.
+          Note that option short aliases for `svg-sprite build` and `svg-sprite extract` commands are changed:
+          All are now single character e.g. `-O` and not `-oe` for `--overwrite-existing`.
+
+        - **Improved:** Updated target framework for the tool to `net8.0`
+          and also added `net8.0` as additional target framework to the library.
+
+        - **Improved:** Strong name sign the DLLs for NuGet package. Signing will be done only when `DotMake.snk` exists,
+          it's not committed to this repository.
       ]]>
     </PackageReleaseNotes>
   </PropertyGroup>
@@ -25,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotMake.CommandLine" Version="2.8.1" />
+    <PackageReference Include="DotMake.CommandLine" Version="3.7.0" />
     <PackageReference Include="Glob.cs" Version="5.1.1643" />
   </ItemGroup>
 

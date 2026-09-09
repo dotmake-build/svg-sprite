@@ -54,7 +54,8 @@ namespace DotMake.SvgSprite.Cli.Commands
         public bool IdLowerCased { get; set; }
 
         [CliOption(
-            Description = "The override value to use for all viewBox attributes, e.g. \"0 0 24 24\" when converting <svg> tag to <symbol> tag or vice versa."
+            Description = "The override value to use for all viewBox attributes, e.g. \"0 0 24 24\" when converting <svg> tag to <symbol> tag or vice versa.",
+            Alias = "b"
         )]
         public string ViewBoxOverride { get; set; }
 

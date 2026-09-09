@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DotMake.SvgSprite.Cli/DotMake.SvgSprite.Cli.csproj" />
+  <Project Path="DotMake.SvgSprite/DotMake.SvgSprite.csproj" />
+</Solution>

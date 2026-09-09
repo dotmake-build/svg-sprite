@@ -1,14 +1,12 @@
 ![DotMake Svg-Sprite Logo](https://raw.githubusercontent.com/dotmake-build/svg-sprite/master/images/logo-wide.svg "DotMake Svg-Sprite Logo")
 
-# DotMake Svg-Sprite
+# DotMake Svg-Sprite Tool
 
-A dotnet tool and a library for building or extracting of an SVG sprite, i.e. a `.svg` file with child `<symbol>` tags.
+A dotnet tool for building or extracting of an SVG sprite, i.e. a `.svg` file with child `<symbol>` tags.
+We also offer a dotnet library [DotMake.SvgSprite](https://www.nuget.org/packages/DotMake.SvgSprite) for same purpose.
 
 There was no proper tool for .NET (there are some for npm) for handling SVG sprites so this tool is created. 
 It could be useful in MSBuild targets or build scripts, especially for web applications.
-
-[![Nuget](https://img.shields.io/nuget/v/svg-sprite?style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/svg-sprite)
-[![Nuget](https://img.shields.io/nuget/v/DotMake.SvgSprite?style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/DotMake.SvgSprite)
 
 ![DotMake Svg-Sprite CLI](https://raw.githubusercontent.com/dotmake-build/svg-sprite/master/images/svg-sprite-cli.png "DotMake Svg-Sprite CLI")
 
@@ -16,30 +14,26 @@ It could be useful in MSBuild targets or build scripts, especially for web appli
 
 ## Getting started
 
-Install the dotnet tool or the library from [NuGet](https://www.nuget.org/).
+Install the dotnet tool from [NuGet](https://www.nuget.org/).
 
-- For using the dotnet tool: install via dotnet cli:
-  ```console
-  dotnet tool install --global svg-sprite
-  ```
+```console
+dotnet tool install --global svg-sprite
+```
 
-- For using the library: in your project directory, add via dotnet cli:
-  ```console
-  dotnet add package DotMake.SvgSprite
-  ```
+Or just update to the latest (also installs if not exists):
+
+```console
+dotnet tool update --global svg-sprite
+```
 
 ### Prerequisites
 
-- For using the dotnet tool: .NET SDK 8.0 and later. The .NET CLI (`dotnet` command) is included with the [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/sdk).
+- .NET SDK 8.0 and later. The .NET CLI (`dotnet` command) is included with the [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/sdk).
 
-- For using the library: .NET Standard 2.0 and later project.  
-  Note that .NET Framework 4.7.2+ or .NET Core 2.0+ or .NET 5.0+ projects can reference our netstandard2.0 target (automatic in nuget).  
 
 ## Usage
 
-### Dotnet tool usage
-
-#### Use `build` command to build an SVG sprite file from input SVG files:
+### Use `build` command to build an SVG sprite file from input SVG files:
 ```console
 svg-sprite build inputs\*.svg -o sprite.svg
 
@@ -134,7 +128,7 @@ Options:
   -?, -h, --help                                       Show help and usage information
 ```
 
-#### Use `extract` command to extract symbols from an SVG sprite file to individual SVG files:
+### Use `extract` command to extract symbols from an SVG sprite file to individual SVG files:
 ```console
 svg-sprite extract sprite.svg -o outputs\
 ```
@@ -209,110 +203,7 @@ Options:
   -?, -h, --help                                       Show help and usage information
 ```
 
-### Library usage
 
-Refer to [DotMake Svg-Sprite API docs](https://dotmake.build/svg-sprite/api/) for more details.
-
-#### Use `SvgSpriteBuilder.AddSymbol()` method to build an SVG sprite file from input SVG files:
-```c#
-//Build an SVG sprite file from input SVG files
-
-var svgDocument = new SvgDocument();
-var svgSpriteBuilder = new SvgSpriteBuilder(svgDocument);
-
-foreach (var file in Directory.EnumerateFiles(@"inputs\", "*.svg"))
-{
-    var svgDocumentToAdd = new SvgDocument(file);
-    var symbolId = Path.GetFileNameWithoutExtension(file);
-
-    svgSpriteBuilder.AddSymbol(svgDocumentToAdd, symbolId);
-}
-
-svgDocument.Save(@"sprite.svg");
-```
-
-```c#
-//Build an SVG sprite file from input SVG files with custom options
-
-var svgDocument = new SvgDocument();
-var svgSpriteBuilder = new SvgSpriteBuilder(svgDocument);
-var svgSymbolOptions = new SvgSymbolOptions
-{
-    //These are default values for options
-    AttributesToPreserve = new[] { "id", "viewBox", "class", "style", "fill", "stroke", "opacity", "transform" },
-    ElementsToPreserve = new[] { "*" },
-    IdForMissing = "symbol",
-    IdReplacementChar = '-',
-    IdLowerCased = true
-};
-
-foreach (var file in Directory.EnumerateFiles(@"inputs\", "*.svg"))
-{
-    var svgDocumentToAdd = new SvgDocument(file);
-    var symbolId = Path.GetFileNameWithoutExtension(file);
-
-    svgSpriteBuilder.AddSymbol(svgDocumentToAdd, symbolId, svgSymbolOptions);
-}
-
-svgDocument.Save(@"sprite.svg");
-```
-
-#### Use `SvgSpriteBuilder.ExtractSymbol()` method to extract symbols from an SVG sprite file to individual SVG files:
-```c#
-//Extract symbols from an SVG sprite file to individual SVG files
-
-var svgDocument = new SvgDocument(@"sprite.svg");
-var svgSpriteBuilder = new SvgSpriteBuilder(svgDocument);
-var outputDirectory = @"outputs\";
-
-foreach (var symbolId in svgSpriteBuilder.GetSymbolIds())
-{
-    var svgDocumentToExtract = svgSpriteBuilder.ExtractSymbol(symbolId);
-    var svgFile = Path.Combine(outputDirectory, Path.ChangeExtension(symbolId, ".svg"));
-
-    Directory.CreateDirectory(outputDirectory);
-    svgDocumentToExtract.Save(svgFile);
-}
-```
-
-```c#
-//Extract symbols from an SVG sprite file to individual SVG files with custom options
-
-var svgDocument = new SvgDocument(@"sprite.svg");
-var svgSpriteBuilder = new SvgSpriteBuilder(svgDocument);
-var svgSymbolOptions = new SvgSymbolOptions
-{
-    //These are default values for options
-    AttributesToPreserve = new[] { "id", "viewBox", "class", "style", "fill", "stroke", "opacity", "transform" },
-    ElementsToPreserve = new[] { "*" },
-    IdForMissing = "symbol",
-    IdReplacementChar = '-',
-    IdLowerCased = true
-};
-var outputDirectory = @"outputs\";
-
-foreach (var symbolId in svgSpriteBuilder.GetSymbolIds())
-{
-    var svgDocumentToExtract = svgSpriteBuilder.ExtractSymbol(symbolId, svgSymbolOptions);
-    var svgFile = Path.Combine(outputDirectory, Path.ChangeExtension(symbolId, ".svg"));
-
-    Directory.CreateDirectory(outputDirectory);
-    svgDocumentToExtract.Save(svgFile);
-}
-```
-
-#### Use `SvgSpriteBuilder.CreatePreviewPage()` method to create an HTML page for previewing the symbols inside the SVG sprite:
-```c#
-//Create an HTML page for previewing the symbols inside the SVG sprite
-
-var svgDocument = new SvgDocument(@"sprite.svg");
-var svgSpriteBuilder = new SvgSpriteBuilder(svgDocument);
-
-var html = svgSpriteBuilder.CreatePreviewPage();
-File.WriteAllText(@"preview.html", html);
-```
-Note that `<use>` tag does not work cross-origin, including local HTML files (when not viewed from a web server),
-so we put/inline the SVG sprite into HTML for the preview page.
 
 ## Using SVG sprites
 Once you have an SVG sprite, for example `sprite.svg` like this:
@@ -357,30 +248,11 @@ then you should only include the URL fragment in `href` attribute:
 Note that for `<use>` tag, the old attribute `xlink:href` is deprecated and the attribute `href` is used since browser
 versions released from 2016-2019.
 
-## Building
-
-We provide some `.cmd` batch scripts in `build` folder for easier building:
-```console
-1. Build Cli.cmd
-2. Build Nuget Packages.cmd
-3. Build Api Docs WebSite.cmd         
-```
-
-Output results can be found in `publish` folder, for example:
-```console
-DotMake.SvgSprite.Cli-net8.0
-
-svg-sprite.2.0.0.nupkg
-DotMake.SvgSprite.2.0.0.nupkg
-```
-
 ## Links
 
 - [DotMake Svg-Sprite Documentation](https://dotmake.build/svg-sprite/)
-- [DotMake Svg-Sprite API Reference](https://dotmake.build/svg-sprite/api/)
 - [Release Notes](https://github.com/dotmake-build/svg-sprite/releases)
-- [NuGet Package for Tool](https://www.nuget.org/packages/svg-sprite)
-- [NuGet Package for Library](https://www.nuget.org/packages/DotMake.SvgSprite)
+- [GitHub Repository](https://github.com/dotmake-build/svg-sprite)
 
 ## Additional documentation
 

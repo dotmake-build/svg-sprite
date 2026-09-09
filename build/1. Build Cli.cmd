@@ -5,7 +5,7 @@ set srcFolder=..\src
 set publishFolder=..\publish
 
 for %%f in (
-  net6.0
+  net8.0
 ) do (
   setlocal EnableDelayedExpansion
   set outputFolder=%publishFolder%\%projectName%-%%f

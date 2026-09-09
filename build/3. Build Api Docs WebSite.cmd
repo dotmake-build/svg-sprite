@@ -4,9 +4,9 @@ set srcFolder=..\docs
 set publishFolder=..\docs\_site
 
 dotnet tool update -g docfx-plus
-docfx-plus %srcFolder%\docfx.json --serve
 
-@echo off
+rmdir /S /Q "%publishFolder%"
+docfx-plus %srcFolder%\docfx.json --serve
 if %ERRORLEVEL% EQU 0 (
   echo:
   echo *************
@@ -14,6 +14,6 @@ if %ERRORLEVEL% EQU 0 (
   echo *************
   echo:
 )
-@echo on
+
 
 @pause

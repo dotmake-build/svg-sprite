@@ -16,7 +16,7 @@ namespace DotMake.SvgSprite.Cli
             var argsOrCommandLine = args;
             //var argsOrCommandLine = $@"b {testFilesPath}\set1\*  -o {testFilesPath}\set1_sprite_cli.svg";
             //var argsOrCommandLine = $@"b {testFilesPath}\set12 -o {testFilesPath}\set1_sprite_cli.svg";
-            //var argsOrCommandLine = $@"b {testFilesPath}\set2\*  -o {testFilesPath}\set2_sprite_cli.svg -oe -hp";
+            //var argsOrCommandLine = $@"b {testFilesPath}\set2\*  -o {testFilesPath}\set2_sprite_cli.svg -O -p";
 
             DotMake.CommandLine.Cli.Run<RootCliCommand>(argsOrCommandLine, new CliSettings { EnableDefaultExceptionHandler = true });
 

@@ -21,4 +21,7 @@ for %%f in (
   )
 )
 
+dotnet tool uninstall -g svg-sprite
+dotnet tool update -g svg-sprite --configfile ../src/nuget.config
+
 pause

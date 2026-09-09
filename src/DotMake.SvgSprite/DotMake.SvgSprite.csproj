@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
     <LangVersion>10.0</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
@@ -11,8 +11,10 @@
     <PackageTags>svg sprite symbol icon builder generator extractor dotnet library</PackageTags>
     <PackageReleaseNotes>
       <![CDATA[
-        - **Fixed:** Some elements inside `<svg>` tag was wrongly being considered empty, e.g. `<g>` tags so
-          the resulting `<symbol>` tag was generated as empty.
+        - **Improved:** Added `net8.0` as additional target framework to the library.
+
+        - **Improved:** Strong name sign the DLLs for NuGet package. Signing will be done only when `DotMake.snk` exists,
+          it's not committed to this repository.
       ]]>
     </PackageReleaseNotes>
   </PropertyGroup>
