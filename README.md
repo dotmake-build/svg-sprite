@@ -361,9 +361,9 @@ versions released from 2016-2019.
 
 We provide some `.cmd` batch scripts in `build` folder for easier building:
 ```console
-1. Build Cli.cmd
+1. Build Cli App.cmd
 2. Build Nuget Packages.cmd
-3. Build Api Docs WebSite.cmd         
+3. Build Docs WebSite.cmd         
 ```
 
 Output results can be found in `publish` folder, for example:
@@ -372,6 +372,9 @@ DotMake.SvgSprite.Cli-net8.0
 
 svg-sprite.2.0.0.nupkg
 DotMake.SvgSprite.2.0.0.nupkg
+
+Docs-WebSite
+Docs-Offline
 ```
 
 ## Links

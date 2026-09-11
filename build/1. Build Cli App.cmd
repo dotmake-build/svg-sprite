@@ -1,26 +1,25 @@
 @echo off
 setlocal enabledelayedexpansion
 
+set projectName=DotMake.SvgSprite.Cli
 set srcFolder=..\src
 set publishFolder=..\publish
-set updateDotnetTool=svg-sprite
 set publishedCount=0
 
 for %%f in (
-  DotMake.SvgSprite
-  DotMake.SvgSprite.Cli
+  net8.0
 ) do (
   setlocal EnableDelayedExpansion
-  set projectName=%%f
+  set outputFolder=%publishFolder%\%projectName%-%%f
   
-  dotnet pack %srcFolder%\!projectName!\!projectName!.csproj --configuration Release --output %publishFolder%
+  dotnet clean %srcFolder%\%projectName%\%projectName%.csproj --configuration Release --framework %%f --output !outputFolder!
+  if %ERRORLEVEL% neq 0 goto :Exit
+  
+  dotnet publish %srcFolder%\%projectName%\%projectName%.csproj --configuration Release --framework %%f --output !outputFolder!
   if %ERRORLEVEL% neq 0 goto :Exit
   set /a publishedCount+=1
-  set published[!publishedCount!]=Published "!projectName!.X.X.X.nupkg" to "%publishFolder%" folder.
+  set published[!publishedCount!]=Published "%projectName%" to "!outputFolder!" folder.
 )
-
-dotnet tool uninstall -g %updateDotnetTool%
-dotnet tool update -g %updateDotnetTool% --configfile ../src/nuget.config
 
 
 :Exit
